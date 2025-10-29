@@ -1,0 +1,14 @@
+git clone https://github.com/JonyC15/Billar-Espana-Web.git
+
+export PROJECT_ID=$(gcloud config get-value project)
+export LOCATION="northamerica-south1" # Replace with your repository's region
+export REPO_NAME="billar-espana-web" # Replace with your Artifact Registry name
+export IMAGE_NAME="nginx-html-site"
+export TAG="latest"
+
+export AR_IMAGE_URI="${LOCATION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${IMAGE_NAME}:${TAG}"
+echo "Image URI: $AR_IMAGE_URI"
+
+docker build -t ${AR_IMAGE_URI} .
+
+docker push ${AR_IMAGE_URI}
