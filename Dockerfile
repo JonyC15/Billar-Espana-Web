@@ -11,7 +11,7 @@ ARG BUILD_PATH=dist
 COPY $BUILD_PATH /usr/share/nginx/html
 
 # Expose port 80 (the default Nginx port)
-EXPOSE 80
+EXPOSE 8080
 
 # The default command of the Nginx image starts the server, so we don't need a CMD
 # The image will run Nginx when a container is started.
